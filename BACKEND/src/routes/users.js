@@ -5,20 +5,9 @@ const validate = require("../middleware/validate");
 const { createUserSchema, updateUserSchema } = require("../validations/users");
 
 const router = express.Router();
-const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
+const { getUserFromAuthHeader } = require("../middleware/auth");
+const { JWT_SECRET } = require("../config");
 
-function getUserFromAuthHeader(req) {
-  const auth = req.headers.authorization || "";
-  if (!auth.startsWith("Bearer ")) return null;
-  try {
-    const token = auth.substring(7);
-    const decoded = jwt.verify(token, JWT_SECRET);
-    return decoded;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
 
 router.post("/", validate(createUserSchema), async (req, res) => {
   const { nombre_usuario, contrasena_hash, correo } = req.body;
