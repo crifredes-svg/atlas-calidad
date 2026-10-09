@@ -6,7 +6,6 @@ const router = express.Router();
 const { getUserFromAuthHeader } = require("../middleware/auth");
 const { JWT_SECRET } = require("../config");
 
-const { getUserFromAuthHeader } = require("../middleware/auth");
 
 
 router.post("/", async (req, res) => {
