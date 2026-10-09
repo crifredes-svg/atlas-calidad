@@ -72,7 +72,7 @@ router.post("/login", validate(loginSchema), async (req, res) => {
     console.error(err);
     res
       .status(500)
-      .json({ error: "Error en login", glosa: err.message || err.toString() });
+      .json({ error: "Error en login", glosa: "Ocurrió un error interno" });
   }
 });
 

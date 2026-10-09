@@ -100,7 +100,7 @@ router.post("/", validate(clienteSchema), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al crear cliente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
@@ -116,7 +116,6 @@ router.get("/", async (req, res) => {
       });
     }
 
-    console.log("authUser", authUser.empresaId);
 
     const result = await pool.query(
       "SELECT * FROM clientes WHERE empresa_id = $1 ORDER BY id DESC",
@@ -128,7 +127,7 @@ router.get("/", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al listar clientes",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
@@ -154,7 +153,7 @@ router.get("/search", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error en búsqueda",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
@@ -183,7 +182,7 @@ router.get("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al obtener cliente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
@@ -282,7 +281,7 @@ router.put("/:id", validate(clienteSchema), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al actualizar cliente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
@@ -319,7 +318,7 @@ router.delete("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al eliminar cliente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno",
     });
   }
 });
