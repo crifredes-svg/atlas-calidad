@@ -10,5 +10,9 @@
     "start-frontend": "cd FRONTEND && npm run dev",
     "start": "npm run start-backend && npm run start-frontend",
     "install": "npm run install-backend && npm run install-frontend"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.64.1"
   }
 }
