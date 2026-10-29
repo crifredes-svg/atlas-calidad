@@ -6,10 +6,10 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar dependencias
-RUN npm install
+RUN npm ci --ignore-scripts
 
 # Copiar el código de la aplicación
-COPY . .
+COPY src ./src
 
 # Cambiar la propiedad de los archivos al usuario no-root 'node'
 RUN chown -R node:node /app

@@ -1,9 +1,9 @@
-const path = require("path");
-const fs = require("fs");
+const path = require("node:path");
+const fs = require("node:fs");
 const express = require("express");
 const multer = require("multer");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
+const crypto = require("node:crypto");
 const { pool } = require("../db");
 const validate = require("../middleware/validate");
 const { createContractSchema, updateContractSchema } = require("../validations/contracts");
